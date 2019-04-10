@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<mainWeather> call, Response<mainWeather> response) {
                 mainWeather weather =response.body();
                 assert  weather != null;
-                textView.setText(weather.getName());
+                textView.setText(weather.getSys().getCountry());
 
             }
 
