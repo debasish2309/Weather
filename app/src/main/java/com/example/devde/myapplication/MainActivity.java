@@ -33,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         ApiInterface apiservice = ApiClient.getClient().create(ApiInterface.class);
         Call<mainWeather> call = apiservice.getCurrentWeather(lat,lon,API_KEY);
-
-
-
         call.enqueue(new Callback<mainWeather>() {
             @Override
             public void onResponse(Call<mainWeather> call, Response<mainWeather> response) {
