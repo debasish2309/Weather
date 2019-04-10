@@ -6,30 +6,30 @@ import com.google.gson.annotations.SerializedName;
 public class Coord {
     @SerializedName("lon")
     @Expose
-    private Double lon;
+    private String lon;
 
     @SerializedName("lat")
     @Expose
-    private Double lat;
+    private String lat;
 
-    public Coord(Double lon, Double lat) {
+    public Coord(String lon, String lat) {
         this.lon = lon;
         this.lat = lat;
     }
 
-    public Double getLon() {
+    public String getLon() {
         return lon;
     }
 
-    public void setLon(Double lon) {
+    public void setLon(String lon) {
         this.lon = lon;
     }
 
-    public Double getLat() {
+    public String getLat() {
         return lat;
     }
 
-    public void setLat(Double lat) {
+    public void setLat(String lat) {
         this.lat = lat;
     }
 }

@@ -6,15 +6,15 @@ import com.google.gson.annotations.SerializedName;
 public class Sys {
     @SerializedName("type")
     @Expose
-    private Integer type;
+    private String type;
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private String id;
 
     @SerializedName("message")
     @Expose
-    private Double message;
+    private String message;
 
     @SerializedName("country")
     @Expose
@@ -22,33 +22,33 @@ public class Sys {
 
     @SerializedName("sunrise")
     @Expose
-    private Integer sunrise;
+    private String sunrise;
 
     @SerializedName("sunset")
     @Expose
-    private Integer sunset;
+    private String sunset;
 
-    public Integer getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Integer type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Double getMessage() {
+    public String getMessage() {
         return message;
     }
 
-    public void setMessage(Double message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 
@@ -60,19 +60,19 @@ public class Sys {
         this.country = country;
     }
 
-    public Integer getSunrise() {
+    public String getSunrise() {
         return sunrise;
     }
 
-    public void setSunrise(Integer sunrise) {
+    public void setSunrise(String sunrise) {
         this.sunrise = sunrise;
     }
 
-    public Integer getSunset() {
+    public String getSunset() {
         return sunset;
     }
 
-    public void setSunset(Integer sunset) {
+    public void setSunset(String sunset) {
         this.sunset = sunset;
     }
 }
