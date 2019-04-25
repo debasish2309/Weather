@@ -18,6 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
                 <TextView
+                    android:id="@+id/tv_Location"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" 
                     android:gravity="center"
@@ -33,17 +34,22 @@
                     android:layout_height="0dp"
                     android:layout_weight="3">
                     <ImageView
+                        android:id="@+id/iv_temp_icon"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" 
                         android:layout_weight="1"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_cloud_queue_black_24dp"/>
                     <TextView
+                        android:id="@+id/tv_degree"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" 
                         android:layout_weight="1."
                         android:gravity="center"
-                        android:text="30"/>
+                        android:text="30"
+                        android:textSize="30sp"/>
                     
                 </LinearLayout>
                 <LinearLayout
@@ -56,18 +62,21 @@
                         android:layout_weight="1.5"
                         android:orientation="vertical">
                         <TextView
+                            android:id="@+id/tv_date"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:text="Todays date to mention"
                             android:gravity="center"/>
                         <TextView
+                            android:id="@+id/tv_wind"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:text="Todays date to mention"
                             android:gravity="center"/>
                         <TextView
+                            android:id="@+id/tv_probablety"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -81,10 +90,12 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1">
                         <TextView
+                            android:id="@+id/tv_time"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:text="12:48"/>
+                            android:text="12:48"
+                            android:textSize="20sp"/>
 
                     </LinearLayout>
 
@@ -100,8 +111,11 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:paddingRight="20sp"
+                    android:paddingLeft="20dp">
                     <ImageView
+                        android:id="@+id/iv_tempreatureicon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/ic_cloud_queue_black_24dp"/>
@@ -110,7 +124,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2.5"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -122,6 +137,7 @@
                             android:layout_height="wrap_content"
                             android:text="Humidity : "/>
                         <TextView
+                            android:id="@+id/tv_humidity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Humidity"/>
@@ -136,6 +152,7 @@
                             android:layout_height="wrap_content"
                             android:text="Sun Rise : "/>
                         <TextView
+                            android:id="@+id/tv_sunrise"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Sunrise"/>
@@ -148,8 +165,39 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="Max Temp : "/>
+                        <TextView
+                            android:id="@+id/tv_max_temp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Max Temp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Min Temp : "/>
+                        <TextView
+                            android:id="@+id/tv_min_temp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Min Temp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="Sunset : "/>
                         <TextView
+                            android:id="@+id/tv_sunset"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Sunset"/>
@@ -162,8 +210,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Precipitation : "/>
+                            android:text="Main : "/>
                         <TextView
+                            android:id="@+id/tv_precipitation"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Precipitaion"/>
@@ -178,6 +227,7 @@
                             android:layout_height="wrap_content"
                             android:text="Pressure : "/>
                         <TextView
+                            android:id="@+id/tv_pressure"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Pressure"/>
@@ -190,8 +240,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Uv Index : "/>
+                            android:text="Description : "/>
                         <TextView
+                            android:id="@+id/tv_uvIndex"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Uv Index"/>
@@ -206,6 +257,7 @@
                             android:layout_height="wrap_content"
                             android:text="Wind Speed : "/>
                         <TextView
+                            android:id="@+id/tv_windSpeed"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Windspeed"/>
