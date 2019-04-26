@@ -1,6 +1,7 @@
 package com.example.devde.myapplication;
 
 import android.Manifest;
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -12,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.Time;
 import android.util.Log;
+import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -56,7 +59,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
+        View decorView = getWindow().getDecorView();
+        // Hide the status bar.
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+       // Remember that you should never show the action bar if the
+       // status bar is hidden, so hide that too if necessary.
+        /*ActionBar actionBar = getActionBar();
+        actionBar.hide();*/
+
 
         textView = findViewById(R.id.textview);
         imageicon = findViewById(R.id.iv_temp_icon);
@@ -90,7 +104,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Location location) {
                 if(location != null){
-                    probablity.setText("lat : "+location.getLatitude() + " , "+"lng : "+location.getLongitude());
+                    String Latitiute = String.format("%.2f",location.getLatitude());
+                    String Longitute = String.format("%.2f",location.getLongitude());
+                    probablity.setText("lat : "+Latitiute + " , "+"lng : "+Longitute);
 
                     try {
                         addresses = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
@@ -117,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                             DateFormat df = new SimpleDateFormat("EEE, MMM d, yyyy");
                             String dates = df.format(Calendar.getInstance().getTime());
                             date.setText(dates);
-                            windspeed.setText(weather.getWind().getSpeed() + "m/s");
+                            windspeed.setText(weather.getWind().getSpeed() + " m/s");
                     //        probablity.setText(weather.getSys().getCountry());
                             DateFormat tf = new SimpleDateFormat("h:mm a");
                             String times = tf.format(Calendar.getInstance().getTime());
@@ -129,13 +145,13 @@ public class MainActivity extends AppCompatActivity {
                             String sunsettime = formatter.format(new Date(Long.parseLong(weather.getSys().getSunset())));
                             sunset.setText(sunsettime);
                             precipitation.setText(weather.getWeather().get(0).getMain());
-                            pressure.setText(weather.getMain().getPressure() + "hpa");
+                            pressure.setText(weather.getMain().getPressure() + " hpa");
                             uvIndex.setText(weather.getWeather().get(0).getDescription());
-                            windspeed2.setText(weather.getWind().getSpeed() +"m/s");
+                            windspeed2.setText(weather.getWind().getSpeed() +" m/s");
                             float maxtemp = (float) (Double.valueOf(weather.getMain().getTemp_max()) - 273.15);
-                            maxTemp.setText(String.format("%.2f",maxtemp) + "°C");
+                            maxTemp.setText(String.format("%.2f",maxtemp) + " °C");
                             float minTemp = (float) (Double.valueOf(weather.getMain().getTemp_min()) - 273.15);
-                            mintemp.setText(String.format("%.2f",minTemp) + "°C");
+                            mintemp.setText(String.format("%.2f",minTemp) + " °C");
                             Picasso.get()
                                     .load(url + weather.getWeather().get(0).getIcon()+".png")
                                     .into(imageicon);
@@ -143,8 +159,6 @@ public class MainActivity extends AppCompatActivity {
                                     .load(url + weather.getWeather().get(0).getIcon()+".png")
                                     .into(imageicon2);
                             Log.i("!!!icon",weather.getWeather().get(0).getIcon());
-
-
 
                         }
                         @Override
